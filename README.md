@@ -116,6 +116,29 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 - Web Crypto API (AES-GCM encryption)
 - mempool.space API
 
+## 📜 Version History / 版本历史
+
+### V1.2 (March 2026)
+- **优化显示** - 地址卡片添加 BTC 数量显示，界面细节优化
+- **添加重置功能** - 忘记密码时可重置加密存储
+- **BETA标识** - 添加版本标签，明确测试版状态
+
+### V1.1 (March 2026)
+- **本地加密** - 引入 AES-GCM 加密，所有数据安全存储在 localStorage
+- **密码保护** - 添加解锁界面，保护观察列表隐私
+
+### V1.0 (March 2026)
+- **初始版本** - 基础功能实现
+- **地址添加/删除** - 支持添加和移除观察地址
+- **余额查询** - 实时获取地址余额
+- **交易历史** - 查看地址交易记录
+- **导入/导出** - 备份和恢复观察列表
+- **费率显示** - 实时显示 mempool.space 推荐费率
+
+## 📝 License / 许可证
+
+MIT © 2026 Evan Liu
+
 ## 👤 Author / 作者
 
 **Evan Liu**  
@@ -125,9 +148,9 @@ Email: evan at blockcoach dot com
 *Built with ❤️ for the bitcoin community*  
 *为比特币社区用心打造*
 
-## 📝 License / 许可证
+## ☕ Support / 支持
 
-MIT © 2026 Evan Liu
+**打赏/捐赠BTC到**: `bc1qc4mu8c2y6xwhc8h65hj0phncc9kzsr7s6cjxk8`
 
 ## ⚠️ Disclaimer / 免责声明
 
@@ -136,10 +159,6 @@ This tool is for educational and informational purposes only. Always verify tran
 
 ### 中文
 此工具仅用于教育和信息目的。请始终在多个来源验证交易。使用风险自负。
-
-## ☕ Support / 支持
-
-**打赏/捐赠BTC到**: `bc1qc4mu8c2y6xwhc8h65hj0phncc9kzsr7s6cjxk8`
 
 ---
 
