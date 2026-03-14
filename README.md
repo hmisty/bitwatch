@@ -1,4 +1,4 @@
-# bitwatch / 比特观察
+# BitWatch / 比特观察
 
 <div align="center">
   <img src="https://img.shields.io/badge/version-1.2-orange" alt="Version 1.2">
@@ -29,7 +29,7 @@
 ## 🖼️ Screenshot / 截图
 
 <div align="center">
-  <img src="screenshot-locked.png" alt="解锁界面">
+  <img style="width:50%" src="screenshot-locked.png" alt="解锁界面">
   <br>
   <em>Unlock Screen / 解锁界面</em>
 </div>
@@ -120,7 +120,7 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 
 **Evan Liu**  
 © 2026 All Rights Reserved  
-Email: [evan@blockcoach.com](mailto:evan@blockcoach.com)
+Email: evan at blockcoach dot com
 
 *Built with ❤️ for the bitcoin community*  
 *为比特币社区用心打造*
