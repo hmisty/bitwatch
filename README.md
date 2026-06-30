@@ -150,7 +150,7 @@ Email: evan at blockcoach dot com
 
 ## ☕ Support / 支持
 
-**打赏/捐赠BTC到**: `bc1qc4mu8c2y6xwhc8h65hj0phncc9kzsr7s6cjxk8`
+**打赏/捐赠BTC到**: `bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e`
 
 ## ⚠️ Disclaimer / 免责声明
 

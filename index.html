@@ -20,6 +20,9 @@
 @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 /* 密码遮罩层 */
 .password-overlay { backdrop-filter: blur(8px); }
+/* API选择器下拉箭头旋转 */
+.fa-chevron-down { transition: transform 0.2s ease; }
+.rotate-180 { transform: rotate(180deg); }
 /* 确保解锁后内容正常显示 */
 [v-cloak] { display: none; }
 		</style>
@@ -34,31 +37,47 @@
 					<div>
 						<h1 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
 							<i class="fa-brands fa-bitcoin text-orange-500"></i> 
-							<span class="relative">
+							<span class="relative whitespace-nowrap">
 								比特观察
 								<span class="absolute -top-1 -right-10 text-[0.6rem] font-medium bg-orange-100 text-orange-600 px-1.5 py-0.5 rounded-full border border-orange-200 whitespace-nowrap">
 									BETA
 								</span>
 							</span>
-							<span class="text-sm font-normal text-gray-400 bg-gray-100 px-3 py-1 rounded-full ml-12">加密只读</span>
-							<span class="text-xs font-medium bg-gray-100 text-gray-400 px-2 py-1 rounded-full border border-gray-300">V1.2</span>
+							<span class="text-sm font-normal text-gray-400 bg-gray-100 px-3 py-1 rounded-full ml-12 whitespace-nowrap"><i class="fa-solid fa-lock text-[10px] mr-1"></i><span class="hidden md:inline">加密只读</span></span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-400 px-2 py-1 rounded-full border border-gray-300">V1.3</span>
+							<span class="relative inline-flex items-center self-center">
+								<button @click="toggleProviderMenu" class="text-xs font-medium bg-gray-100 text-gray-500 hover:text-orange-600 hover:bg-orange-100 px-2 py-1 rounded-full border border-gray-300 inline-flex items-center gap-1 transition cursor-pointer whitespace-nowrap">
+									<i class="fa-regular fa-eye text-[10px]"></i>
+									<span class="hidden md:inline">{{ currentProviderName }}</span>
+									<i class="fa-solid fa-chevron-down text-[8px]" :class="{'rotate-180': showProviderMenu}"></i>
+								</button>
+								<!-- 点击遮罩关闭下拉菜单 -->
+								<div v-if="showProviderMenu" class="fixed inset-0 z-40" @click="showProviderMenu = false"></div>
+								<!-- API选择下拉菜单 (以button父容器为基准) -->
+								<div v-if="showProviderMenu" class="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 min-w-[220px] overflow-hidden">
+									<template v-for="(prov, k) in API_PROVIDERS" :key="k">
+										<div @click="switchProvider(k)" class="px-4 py-3 cursor-pointer hover:bg-orange-50 transition flex items-center gap-3 border-b border-gray-50 last:border-b-0" :class="{'bg-orange-50': selectedProvider.key === k}">
+											<i class="fa-solid fa-circle-check text-sm" :class="selectedProvider.key === k ? 'text-orange-500' : 'text-gray-200'"></i>
+											<div>
+												<div class="text-sm font-medium text-gray-800">{{ prov.name }}</div>
+												<div class="text-xs text-gray-400 font-mono mt-0.5">{{ prov.base }}</div>
+											</div>
+										</div>
+									</template>
+								</div>
+							</span>
 						</h1>
-						<p class="text-gray-500 mt-1 text-sm flex items-center gap-2">
-						<i class="fa-regular fa-eye"></i> 链上数据来自 mempool.space 
-						<span class="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
-						</p>
 					</div>
 					<div class="flex gap-2 w-full md:w-auto">
 						<button @click="exportBackup" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2 shadow-sm">
-							<i class="fa-solid fa-download"></i> 导出列表
+							<i class="fa-solid fa-download"></i><span class="max-[1000px]:hidden"> 导出列表</span>
 						</button>
 						<label class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2 shadow-sm cursor-pointer">
-							<i class="fa-solid fa-upload"></i> 导入
+							<i class="fa-solid fa-upload"></i><span class="max-[1000px]:hidden"> 导入</span>
 							<input type="file" accept=".json,application/json" @change="importBackup" class="hidden">
 						</label>
 						<button @click="refreshAllAddresses" :disabled="isRefreshingAll" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition flex items-center gap-2 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
-							<i class="fa-solid fa-rotate" :class="{'animate-spin': isRefreshingAll}"></i> 
-							{{ isRefreshingAll ? '刷新中' : '全部刷新' }}
+							<i class="fa-solid fa-rotate" :class="{'animate-spin': isRefreshingAll}"></i><span class="max-[1000px]:hidden"> {{ isRefreshingAll ? '刷新中' : '全部刷新' }}</span>
 						</button>
 					</div>
 				</div>
@@ -189,7 +208,7 @@
 							<div v-else class="space-y-3">
 								<div v-for="tx in transactions" :key="tx.txid" class="border border-gray-100 rounded-xl p-4 hover:bg-gray-50">
 									<div class="flex justify-between items-start gap-2">
-										<a :href="'https://mempool.space/tx/'+tx.txid" target="_blank" class="text-sm font-mono text-orange-600 truncate hover:underline">{{ tx.txid.slice(0,16) }}…{{ tx.txid.slice(-8) }}</a>
+										<a :href="txExplorerUrl(tx.txid)" target="_blank" class="text-sm font-mono text-orange-600 truncate hover:underline">{{ tx.txid.slice(0,16) }}…{{ tx.txid.slice(-8) }}</a>
 										<span :class="tx.type === '接收' ? 'text-green-600' : 'text-red-600'" class="text-sm font-medium px-2 py-0.5 bg-gray-100 rounded-full">{{ tx.type }}</span>
 									</div>
 									<div class="flex justify-between items-center mt-2 text-sm">
@@ -243,7 +262,7 @@
 						</div>
 
 						<p class="text-xs text-gray-300 text-center mt-6">首次使用：输入任意密码创建加密存储<br>请记住密码，数据将用AES-GCM加密保存在本地</p>
-						<p class="text-xs text-gray-600 text-center mt-6">打赏支持<i class="fa-solid fa-heart text-red-300"></i>：bc1qc4mu8c2y6xwhc8h65hj0phncc9kzsr7s6cjxk8</p>
+						<p class="text-xs text-gray-600 text-center mt-6">打赏支持<i class="fa-solid fa-heart text-red-300"></i>：bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e</p>
 					</div>
 				</div>
 			</div>
@@ -345,6 +364,7 @@
 				setup() {
 					// 状态
 					const isUnlocked = ref(false);
+					const showProviderMenu = ref(false);
 					const isUnlocking = ref(false);
 					const passwordInput = ref('');
 					const passwordError = ref('');
@@ -376,10 +396,52 @@
 					});
 
 					// API 调用
-					const MEMPOOL_BASE = 'https://mempool.space/api';
+					const API_PROVIDERS = {
+					mempool: {
+						key: 'mempool',
+						name: 'mempool.space',
+						base: 'https://mempool.space/api',
+						explorer: 'https://mempool.space',
+						feeEndpoint: '/v1/fees/recommended',
+						feeParser: (data) => data // already in {fastestFee,halfHourFee,hourFee,economyFee,minimumFee} format
+					},
+					blockstream: {
+						key: 'blockstream',
+						name: 'Blockstream.info (Esplora)',
+						base: 'https://blockstream.info/api',
+						explorer: 'https://blockstream.info',
+						feeEndpoint: '/fee-estimates',
+						// Esplora returns { "1": rate, "2": rate, ... "25": rate, "144": rate, "504": rate, "1008": rate }
+						feeParser: (data) => ({
+							fastestFee: Math.ceil(data['1'] || 0),
+							halfHourFee: Math.ceil(data['3'] || data['2'] || 0),
+							hourFee: Math.ceil(data['6'] || 0),
+							economyFee: Math.ceil(data['144'] || 0),
+							minimumFee: Math.ceil(data['1008'] || 1)
+						})
+					}
+					};
+
+					// 默认使用 Blockstream Esplora 作为首选 API（更隐私友好，无需第三方依赖）
+					const selectedProvider = ref(API_PROVIDERS.blockstream);
+
+					// 缓存当前区块高度，用于计算确认数
+					const currentBlockHeight = ref(0);
+
+					async function fetchBlockTipHeight() {
+						try {
+							const url = `${selectedProvider.value.base}/blocks/tip/height`;
+							const res = await fetch(url);
+							if (res.ok) {
+								currentBlockHeight.value = parseInt(await res.text());
+							}
+						} catch (e) {
+							console.warn('获取区块高度失败', e);
+						}
+					}
 
 					async function fetchAddressBalance(address) {
-						const url = `${MEMPOOL_BASE}/address/${address}`;
+						const url = `${selectedProvider.value.base}/address/${address}`;
 						const res = await fetch(url);
 						if (!res.ok) throw new Error(`HTTP ${res.status}`);
 						const data = await res.json();
@@ -391,7 +453,9 @@
 					}
 
 					async function fetchAddressTransactions(address) {
-						const url = `${MEMPOOL_BASE}/address/${address}/txs`;
+						// 先获取最新区块高度，用于计算确认数
+						await fetchBlockTipHeight();
+						const url = `${selectedProvider.value.base}/address/${address}/txs`;
 						const res = await fetch(url);
 						if (!res.ok) throw new Error(`HTTP ${res.status}`);
 						const txs = await res.json();
@@ -403,10 +467,17 @@
 							value = outputSum - inputSum;
 							if (value > 0) type = '接收';
 							else if (value === 0) type = '自我';
+							// 计算确认数：Esplora 用 block_height 计算，mempool.space 直接返回 confirmations
+							let confirmations = 0;
+							if (tx.status.confirmations !== undefined) {
+								confirmations = tx.status.confirmations;
+							} else if (tx.status.confirmed && tx.status.block_height) {
+								confirmations = currentBlockHeight.value - tx.status.block_height + 1;
+							}
 							return {
 								txid: tx.txid,
-								time: tx.status.block_time,
-								confirmations: tx.status.confirmations || 0,
+								time: tx.status.block_time || (tx.status.block_height ? Math.floor(Date.now()/1000) : 0),
+								confirmations: confirmations,
 								value: value,
 								type: type
 							};
@@ -414,10 +485,17 @@
 					}
 
 					async function fetchFeeEstimates() {
-						const url = `${MEMPOOL_BASE}/v1/fees/recommended`;
-						const res = await fetch(url);
-						if (!res.ok) return null;
-						return await res.json();
+						const provider = selectedProvider.value;
+						const url = `${provider.base}${provider.feeEndpoint}`;
+						try {
+							const res = await fetch(url);
+							if (!res.ok) return null;
+							const data = await res.json();
+							return provider.feeParser(data);
+						} catch (e) {
+							console.error('费率获取失败', e);
+							return null;
+						}
 					}
 
 					// 保存加密数据 - 修改为直接接收密码参数
@@ -667,8 +745,36 @@
 						}
 					});
 
+					function toggleProviderMenu() {
+						showProviderMenu.value = !showProviderMenu.value;
+					}
+
+					function switchProvider(key) {
+						if (API_PROVIDERS[key]) {
+							selectedProvider.value = API_PROVIDERS[key];
+							showProviderMenu.value = false;
+							// 切换后重新获取费率
+							fetchFeeEstimates().then(data => { fees.value = data; }).catch(console.warn);
+							// 同时刷新当前可见地址的余额（API切换后数据可能不同）
+							if (addressList.value.length > 0) {
+								setTimeout(() => refreshAllAddresses(), 500);
+							}
+						}
+					}
+
+					function txExplorerUrl(txid) {
+						return `${selectedProvider.value.explorer}/tx/${txid}`;
+					}
+
+					const currentProviderName = computed(() => {
+						return selectedProvider.value.name;
+					});
+
 					return {
+						API_PROVIDERS,
+						selectedProvider,
 						isUnlocked,
+						showProviderMenu,
 						isUnlocking,
 						passwordInput,
 						passwordError,
@@ -690,6 +796,10 @@
 						refreshSingleAddress,
 						refreshAllAddresses,
 						removeAddress,
+						toggleProviderMenu,
+						switchProvider,
+						txExplorerUrl,
+						currentProviderName,
 						exportBackup,
 						importBackup,
 						showAddressDetail,
