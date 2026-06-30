@@ -224,7 +224,7 @@
 			</div>
 
 			<!-- 密码锁遮罩层 - 当未解锁时显示 -->
-			<div v-if="!isUnlocked" class="fixed inset-0 bg-white/90 password-overlay z-[100] flex items-center justify-center p-4">
+			<div v-if="!isUnlocked" class="fixed inset-0 bg-white/90 password-overlay z-[100] flex flex-col items-center justify-center p-4">
 				<div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-gray-200 p-8">
 					<div class="text-center mb-6">
 						<i class="fa-brands fa-bitcoin text-5xl text-orange-400 mb-3"></i>
@@ -262,9 +262,10 @@
 						</div>
 
 						<p class="text-xs text-gray-300 text-center mt-6">首次使用：输入任意密码创建加密存储<br>请记住密码，数据将用AES-GCM加密保存在本地</p>
-						<p class="text-xs text-gray-600 text-center mt-6">打赏支持<i class="fa-solid fa-heart text-red-300"></i>：bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e</p>
 					</div>
 				</div>
+				<p class="text-xs text-gray-500 text-center mt-10"><a href="https://github.com/hmisty/bitwatch" target="_blank" class="text-orange-500 hover:text-orange-700 underline decoration-dotted"><i class="fa-brands fa-github"></i> github开源</a> ｜ 打赏支持 <i class="fa-solid fa-heart text-red-300"></i> bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e</p>
+				<p class="text-xs text-gray-400 text-center mt-2">无担保，使用风险自负。No warranty, use at your own risk.</p>
 			</div>
 		</div>
 
