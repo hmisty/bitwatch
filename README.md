@@ -113,7 +113,7 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 
 ## 📜 Version History / 版本历史
 
-### V1.3 (April 2026)
+### V1.3 (July 2026)
 - **多API支持** - 新增 Blockstream Esplora API，可在 mempool.space 和 Esplora 间切换
 - **API选择器** - 页面顶部可切换数据源，切换后自动更新费率与余额
 - **界面优化** - 解锁页底部显示 GitHub 开源链接与免责声明
@@ -163,5 +163,5 @@ This tool is for educational and informational purposes only. Always verify tran
 ---
 
 <div align="center">
-  <sub>Version 1.3 | Released April 2026</sub>
+  <sub>Version 1.3 | Released July 2026</sub>
 </div>
