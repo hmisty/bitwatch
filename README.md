@@ -1,7 +1,7 @@
 # BitWatch / 比特观察
 
 <div align="center">
-  <img src="https://img.shields.io/badge/version-1.2-orange" alt="Version 1.2">
+  <img src="https://img.shields.io/badge/version-1.3-orange" alt="Version 1.3">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT">
   <img src="https://img.shields.io/badge/sats-brightness-brightgreen" alt="Sats">
 </div>
@@ -21,15 +21,16 @@
 | English | 中文 |
 |---------|------|
 | **Lightweight** - Single HTML file, download and open in browser | **轻量** - 单网页文件，下载到本机，用浏览器打开即可使用 |
-| **Fast** - Uses mempool.space API, no blockchain download needed | **快速** - 使用 mempool API，无需等待下载区块链 |
+| **Fast** - Uses Blockstream Esplora / mempool.space API, no blockchain download needed | **快速** - 使用 Blockstream Esplora / mempool.space API，无需等待下载区块链 |
 | **Secure** - Watch-only addresses, no private keys, encrypted localStorage | **安全** - 只导入地址观察，不碰触私钥，数据加密存储在浏览器 localStorage |
 | **Open** - Watch any bitcoin address, no restrictions | **开放** - 可以观察任何比特币地址，没有任何限制 |
 | **Sats-Oriented** - Display in sats, no fiat conversion, cultivate coin-based thinking | **聪本位** - 突出显示 sats，不刷新法币对价，培养币本位思维 |
+| **Multi-API** - Switch between Blockstream Esplora and mempool.space | **多API** - 可在 Blockstream Esplora 和 mempool.space 之间切换 |
 
 ## 🖼️ Screenshot / 截图
 
 <div align="center">
-  <img style="width:50%" src="screenshot-locked.png" alt="解锁界面">
+  <img style="width:50%" src="screenshot-locked.jpg" alt="解锁界面">
   <br>
   <em>Unlock Screen / 解锁界面</em>
 </div>
@@ -37,7 +38,7 @@
 <br>
 
 <div align="center">
-  <img src="screenshot-main.png" alt="主界面">
+  <img src="screenshot-main.jpg" alt="主界面">
   <br>
   <em>Main Interface / 主界面</em>
 </div>
@@ -45,22 +46,16 @@
 ## 🚀 Quick Start / 快速开始
 
 ### English
-1. Download `bitwatch_V1.2.html` (or the latest version)
-2. Open the file with any modern browser (Chrome, Firefox, Edge, Safari)
+1. `git clone git@github.com:hmisty/bitwatch.git` (or download `index.html` directly)
+2. Open `index.html` with any modern browser (Chrome, Firefox, Edge, Safari)
 3. Enter a password to initialize (this is your local encryption password)
 4. Start adding bitcoin addresses to watch
 
 ### 中文
-1. 下载 `bitwatch_V1.2.html`（或最新版本）
-2. 用任意现代浏览器打开（Chrome、Firefox、Edge、Safari 均可）
+1. `git clone git@github.com:hmisty/bitwatch.git`（或直接下载 `index.html`）
+2. 用任意现代浏览器打开 `index.html`（Chrome、Firefox、Edge、Safari 均可）
 3. 输入密码初始化（这是你的本地加密密码）
 4. 开始添加要观察的比特币地址
-
-Integrity Check / 完整性校验：
-```
-% sha256sum bitwatch_V1.2.html
-e702863a9721a0cd562e33bca8a4e9415cd3e9f3405b1939132626eed7fc4f92  bitwatch_V1.2.html
-```
 
 ## 🔒 Security / 安全性
 
@@ -114,9 +109,14 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 - TailwindCSS (CDN)
 - Font Awesome 6
 - Web Crypto API (AES-GCM encryption)
-- mempool.space API
+- Blockstream Esplora API / mempool.space API (可切换)
 
 ## 📜 Version History / 版本历史
+
+### V1.3 (April 2026)
+- **多API支持** - 新增 Blockstream Esplora API，可在 mempool.space 和 Esplora 间切换
+- **API选择器** - 页面顶部可切换数据源，切换后自动更新费率与余额
+- **界面优化** - 解锁页底部显示 GitHub 开源链接与免责声明
 
 ### V1.2 (March 2026)
 - **优化显示** - 地址卡片添加 BTC 数量显示，界面细节优化
@@ -163,5 +163,5 @@ This tool is for educational and informational purposes only. Always verify tran
 ---
 
 <div align="center">
-  <sub>Version 1.2 | Released March 2026</sub>
+  <sub>Version 1.3 | Released April 2026</sub>
 </div>
