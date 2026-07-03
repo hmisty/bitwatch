@@ -1,0 +1,126 @@
+# 比特观察 / BitWatch
+
+<div align="center">
+  <img src="https://img.shields.io/badge/version-1.3-orange" alt="Version 1.3">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT">
+  <img src="https://img.shields.io/badge/sats-brightness-brightgreen" alt="Sats">
+</div>
+
+<br>
+
+<div align="center">
+  <strong>一个清爽的比特币观察钱包。单网页文件，打开即用。</strong>
+</div>
+
+<br>
+
+<div align="center">
+  <img style="width:50%" src="screenshot-locked.jpg" alt="解锁界面">
+  <br>
+  <em>解锁界面</em>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="screenshot-main.jpg" alt="主界面">
+  <br>
+  <em>主界面</em>
+</div>
+
+## ✨ 特性
+
+- **轻量** — 单网页文件，下载到本机，用浏览器打开即可使用
+- **快速** — 使用 Blockstream Esplora / mempool.space API，无需等待下载区块链
+- **安全** — 只导入地址观察，不碰触私钥，数据加密存储在浏览器 localStorage
+- **开放** — 可以观察任何比特币地址，没有任何限制
+- **聪本位** — 突出显示 sats，不刷新法币对价，培养币本位思维
+- **多API** — 可在 Blockstream Esplora 和 mempool.space 之间切换
+
+## 🚀 快速开始
+
+1. 下载 [`bitwatch.html`](https://github.com/hmisty/bitwatch/raw/main/bitwatch.html)（或 `git clone` 本仓库）
+2. 用任意现代浏览器打开 `bitwatch.html`（Chrome、Firefox、Edge、Safari 均可）
+3. 输入密码初始化（这是你的本地加密密码）
+4. 开始添加要观察的比特币地址
+
+## 🔒 安全性
+
+- **无私钥** — 纯观察钱包，从不触碰私钥
+- **本地加密** — 所有地址数据在存入 localStorage 前均使用 AES-GCM 加密
+- **无后端** — 纯前端实现，直接与区块链 API 通信
+- **单文件** — 单一 HTML 文件，易于审查和验证
+
+## 📦 存储
+
+数据经加密后存储在浏览器的 `localStorage` 中。清除浏览器数据将删除所有保存的地址。加密密钥通过 PBKDF2 从您的密码派生。
+
+## 🔄 重置
+
+如果忘记密码，在解锁界面点击"忘记密码？重置加密存储"。这将清除所有已存储数据，允许您设置新密码。
+
+## 📊 功能详解
+
+- **实时费率** — 显示所选 API 推荐的网络费率
+- **余额追踪** — 展示已确认和未确认余额
+- **交易历史** — 查看每个地址的最近交易记录
+- **导入/导出** — 备份和恢复观察列表
+- **批量刷新** — 一键更新所有地址
+
+## 🛠️ 技术栈
+
+- Vue.js 3 (CDN)
+- TailwindCSS 4 (CDN)
+- Font Awesome 6
+- Web Crypto API (AES-GCM 加密)
+- Blockstream Esplora API / mempool.space API（可切换）
+
+## 📜 版本历史
+
+### V1.3 (July 2026)
+- **多API支持** — 新增 Blockstream Esplora API，可在 mempool.space 和 Esplora 间切换
+- **API选择器** — 页面顶部可切换数据源，切换后自动更新费率与余额
+- **界面优化** — 解锁页底部显示 GitHub 开源链接与免责声明
+
+### V1.2 (March 2026)
+- **优化显示** — 地址卡片添加 BTC 数量显示，界面细节优化
+- **添加重置功能** — 忘记密码时可重置加密存储
+- **BETA标识** — 添加版本标签，明确测试版状态
+
+### V1.1 (March 2026)
+- **本地加密** — 引入 AES-GCM 加密，所有数据安全存储在 localStorage
+- **密码保护** — 添加解锁界面，保护观察列表隐私
+
+### V1.0 (March 2026)
+- **初始版本** — 基础功能实现
+- **地址添加/删除** — 支持添加和移除观察地址
+- **余额查询** — 实时获取地址余额
+- **交易历史** — 查看地址交易记录
+- **导入/导出** — 备份和恢复观察列表
+- **费率显示** — 实时显示推荐费率
+
+## 📝 许可证
+
+MIT © 2026 Evan Liu
+
+## 👤 作者
+
+**Evan Liu**  
+© 2026 All Rights Reserved  
+Email: evan at blockcoach dot com
+
+*为比特币社区用心打造*
+
+## ☕ 支持
+
+**打赏/捐赠BTC到**: `bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e`
+
+## ⚠️ 免责声明
+
+此工具仅用于教育和信息目的。请始终在多个来源验证交易。使用风险自负。
+
+---
+
+<div align="center">
+  <sub>Version 1.3 | Released July 2026</sub>
+</div>

@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Copy bitwatch.html → index.html for deployment
+        run: cp bitwatch.html index.html
+
       - name: Create CNAME
         run: echo "bitwatch.blockcoach.com" > ./CNAME
 

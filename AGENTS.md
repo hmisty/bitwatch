@@ -21,11 +21,11 @@
 
 ## 🏗 项目结构
 
-- `index.html` — 单页应用（SPA），所有 HTML/CSS/JS 都在一个文件内
+- `bitwatch.html` — 单页应用（SPA），所有 HTML/CSS/JS 都在一个文件内（部署时 workflow 复制为 `index.html`）
 - `.github/workflows/deploy.yml` — GitHub Pages 部署配置
 - `screenshot-*.jpg` — 截图
-- `favicon.png` — 网站图标
 - `AGENTS.md` — 本文件，给 AI agent 的项目说明
+- `README.md` / `README.zh.md` — 英文和中文说明
 
 ## 🔑 关键约定
 
