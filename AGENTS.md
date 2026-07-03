@@ -11,6 +11,14 @@
 - 使用官方 `actions/deploy-pages@v4`（上传 artifact → 部署）
 - CNAME 由 workflow 自动生成（`bitwatch.blockcoach.com`），源码中不要保留 `CNAME` 文件
 
+### ⚠️ 首次部署的额外步骤
+
+即使 Workflow 中配置了 `cname`，第一次部署时仍需手动在仓库 Settings > Pages 中完成：
+1. **Custom domain**：填入 `bitwatch.blockcoach.com`，点击 Save
+2. **Enforce HTTPS**：勾选（DNS 解析生效后会自动 Provision 证书）
+
+此后每次推送 `main` 分支，CNAME 由 workflow 自动维护，无需再手动操作。（此坑已踩过）
+
 ## 🏗 项目结构
 
 - `index.html` — 单页应用（SPA），所有 HTML/CSS/JS 都在一个文件内
