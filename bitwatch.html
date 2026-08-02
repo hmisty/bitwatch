@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="light dark">
 		<title>比特观察 · 加密钱包</title>
 		<link rel="icon" href="data:image/png;base64,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" sizes="32x32">
 		<!-- 使用南科大镜像资源 -->
@@ -15,6 +16,11 @@
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 .address-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
 .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+.address-card:hover { box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4); }
+.skeleton { background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+}
 @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 /* 密码遮罩层 */
 .password-overlay { backdrop-filter: blur(8px); }
@@ -25,7 +31,7 @@
 [v-cloak] { display: none; }
 		</style>
 	</head>
-	<body class="bg-gray-50 font-sans antialiased">
+	<body class="bg-gray-50 dark:bg-gray-950 font-sans antialiased">
 
 		<div id="app" v-cloak>
 			<!-- 主内容区域 - 使用v-if控制显示 -->
@@ -33,31 +39,31 @@
 				<!-- 头部信息 -->
 				<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
 					<div>
-						<h1 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
+						<h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-3">
 							<i class="fa-brands fa-bitcoin text-orange-500"></i> 
 							<span class="relative whitespace-nowrap">
 								比特观察
-								<span class="absolute -top-1 -right-10 text-[0.6rem] font-medium bg-orange-100 text-orange-600 px-1.5 py-0.5 rounded-full border border-orange-200 whitespace-nowrap">
+								<span class="absolute -top-1 -right-10 text-[0.6rem] font-medium bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 px-1.5 py-0.5 rounded-full border border-orange-200 dark:border-orange-500/30 whitespace-nowrap">
 									BETA
 								</span>
 							</span>
-							<span class="text-sm font-normal text-gray-400 bg-gray-100 px-3 py-1 rounded-full ml-12 whitespace-nowrap"><i class="fa-solid fa-lock text-[10px] mr-1"></i>加密只读</span>
-							<span class="text-xs font-medium bg-gray-100 text-gray-400 px-2 py-1 rounded-full border border-gray-300">V1.3</span>
+							<span class="text-sm font-normal text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full ml-12 whitespace-nowrap"><i class="fa-solid fa-lock text-[10px] mr-1"></i>加密只读</span>
+							<span class="text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-400 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-500">V1.3</span>
 						</h1>
-						<p class="text-gray-500 mt-1 text-sm flex items-center gap-2">
+						<p class="text-gray-500 dark:text-gray-400 mt-1 text-sm flex items-center gap-2">
 							<i class="fa-regular fa-eye"></i> 链上数据来自
-							<button @click="toggleProviderMenu" class="relative font-medium text-gray-700 hover:text-orange-600 cursor-pointer inline-flex items-center gap-1 border-b border-dashed border-gray-300 hover:border-orange-400 transition whitespace-nowrap">
+							<button @click="toggleProviderMenu" class="relative font-medium text-gray-700 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-400 cursor-pointer inline-flex items-center gap-1 border-b border-dashed border-gray-300 dark:border-gray-500 hover:border-orange-400 transition whitespace-nowrap">
 								{{ currentProviderName }}
 								<i class="fa-solid fa-chevron-down text-[10px]" :class="{'rotate-180': showProviderMenu}"></i>
 								<!-- 点击遮罩关闭下拉菜单 -->
 								<div v-if="showProviderMenu" class="fixed inset-0 z-40" @click.stop="showProviderMenu = false"></div>
 								<!-- API选择下拉菜单 -->
-								<div v-if="showProviderMenu" class="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 min-w-[220px] overflow-hidden">
+								<div v-if="showProviderMenu" class="absolute top-full left-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl shadow-lg z-50 min-w-[220px] overflow-hidden">
 									<template v-for="(prov, k) in API_PROVIDERS" :key="k">
-										<div @click="switchProvider(k)" class="px-4 py-3 cursor-pointer hover:bg-orange-50 transition flex items-center gap-3 border-b border-gray-50 last:border-b-0" :class="{'bg-orange-50': selectedProvider.key === k}">
-											<i class="fa-solid fa-circle-check text-sm" :class="selectedProvider.key === k ? 'text-orange-500' : 'text-gray-200'"></i>
+										<div @click="switchProvider(k)" class="px-4 py-3 cursor-pointer hover:bg-orange-50 dark:hover:bg-gray-700 transition flex items-center gap-3 border-b border-gray-50 dark:border-gray-700 last:border-b-0" :class="{'bg-orange-50 dark:bg-orange-500/15': selectedProvider.key === k}">
+											<i class="fa-solid fa-circle-check text-sm" :class="selectedProvider.key === k ? 'text-orange-500' : 'text-gray-200 dark:text-gray-600'"></i>
 											<div>
-												<div class="text-sm font-medium text-gray-800">{{ prov.name }}</div>
+												<div class="text-sm font-medium text-gray-800 dark:text-gray-100">{{ prov.name }}</div>
 												<div class="text-xs text-gray-400 font-mono mt-0.5">{{ prov.base }}</div>
 											</div>
 										</div>
@@ -68,10 +74,10 @@
 						</p>
 					</div>
 					<div class="flex gap-2 w-full md:w-auto">
-						<button @click="exportBackup" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2 shadow-sm">
+						<button @click="exportBackup" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center gap-2 shadow-sm">
 							<i class="fa-solid fa-download"></i> 导出列表
 						</button>
-						<label class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2 shadow-sm cursor-pointer">
+						<label class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center gap-2 shadow-sm cursor-pointer">
 							<i class="fa-solid fa-upload"></i> 导入
 							<input type="file" accept=".json,application/json" @change="importBackup" class="hidden">
 						</label>
@@ -83,37 +89,37 @@
 
 				<!-- 费率卡片 -->
 				<div v-if="fees" class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
-					<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+					<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
 						<div class="text-xs text-gray-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> 最快</div>
-						<div class="text-xl font-bold text-gray-800">{{ fees.fastestFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
+						<div class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ fees.fastestFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
 					</div>
-					<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+					<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
 						<div class="text-xs text-gray-400">半小时</div>
-						<div class="text-xl font-bold text-gray-800">{{ fees.halfHourFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
+						<div class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ fees.halfHourFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
 					</div>
-					<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+					<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
 						<div class="text-xs text-gray-400">一小时</div>
-						<div class="text-xl font-bold text-gray-800">{{ fees.hourFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
+						<div class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ fees.hourFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
 					</div>
-					<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+					<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
 						<div class="text-xs text-gray-400">经济</div>
-						<div class="text-xl font-bold text-gray-800">{{ fees.economyFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
+						<div class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ fees.economyFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
 					</div>
-					<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+					<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
 						<div class="text-xs text-gray-400">最低</div>
-						<div class="text-xl font-bold text-gray-800">{{ fees.minimumFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
+						<div class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ fees.minimumFee }} <span class="text-sm font-normal text-gray-400">sat/vB</span></div>
 					</div>
 				</div>
 				<div v-else class="h-16 mb-8 skeleton rounded-xl"></div>
 
 				<!-- 添加地址表单 -->
-				<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-					<h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-plus"></i> 添加观察地址</h2>
+				<div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 mb-8">
+					<h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"><i class="fa-regular fa-plus"></i> 添加观察地址</h2>
 					<div class="flex flex-col sm:flex-row gap-3">
 						<input type="text" v-model="newAddressInput" placeholder="比特币地址 (以1、3或bc1开头)" 
-																	 class="flex-1 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 focus:border-orange-300 outline-none transition">
+																	 class="flex-1 border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500/30 focus:border-orange-300 dark:focus:border-orange-500 outline-none transition dark:bg-gray-900 dark:text-gray-200 dark:placeholder-gray-500">
 						<input type="text" v-model="newLabelInput" placeholder="标签 (可选)" 
-																   class="sm:w-48 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 focus:border-orange-300 outline-none transition">
+																   class="sm:w-48 border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500/30 focus:border-orange-300 dark:focus:border-orange-500 outline-none transition dark:bg-gray-900 dark:text-gray-200 dark:placeholder-gray-500">
 						<button @click="addNewAddress" :disabled="!isAddressInputValid" 
 																   class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-medium transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm">
 							<i class="fa-regular fa-bookmark"></i> 添加
@@ -124,48 +130,48 @@
 				</div>
 
 				<!-- 总资产卡片 -->
-				<div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 border border-orange-100 shadow-sm mb-8">
+				<div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-500/10 dark:to-amber-500/10 rounded-2xl p-6 border border-orange-100 dark:border-orange-500/20 shadow-sm mb-8">
 					<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
 						<div>
-							<span class="text-sm text-orange-600 font-medium">总余额 (仅已确认)</span>
-							<div class="text-4xl font-bold text-gray-800 mt-1">{{ totalBalance.toLocaleString() }} <span class="text-base font-normal text-gray-500">sats</span></div>
-							<div class="text-sm text-gray-500 mt-1"><i class="fa-regular fa-circle-dot"></i> ≈ {{ (totalBalance / 100000000).toFixed(8) }} BTC</div>
+							<span class="text-sm text-orange-600 dark:text-orange-400 font-medium">总余额 (仅已确认)</span>
+							<div class="text-4xl font-bold text-gray-800 dark:text-gray-100 mt-1">{{ totalBalance.toLocaleString() }} <span class="text-base font-normal text-gray-500 dark:text-gray-400">sats</span></div>
+							<div class="text-sm text-gray-500 dark:text-gray-400 mt-1"><i class="fa-regular fa-circle-dot"></i> ≈ {{ (totalBalance / 100000000).toFixed(8) }} BTC</div>
 						</div>
-						<div class="text-right text-sm text-gray-500">
+						<div class="text-right text-sm text-gray-500 dark:text-gray-400">
 							<div><i class="fa-regular fa-clock"></i> 上次全量刷新: {{ lastRefreshTime || '尚未' }}</div>
-							<div class="mt-1"><span class="bg-white px-3 py-1 rounded-full text-xs">观察中 {{ addressList.length }} 个地址</span></div>
+							<div class="mt-1"><span class="bg-white dark:bg-gray-800 px-3 py-1 rounded-full text-xs">观察中 {{ addressList.length }} 个地址</span></div>
 						</div>
 					</div>
 				</div>
 
 				<!-- 地址列表网格 -->
-				<div v-if="addressList.length === 0" class="text-center py-16 bg-white rounded-2xl border border-dashed border-gray-200">
-					<i class="fa-regular fa-face-frown text-5xl text-gray-300 mb-4"></i>
+				<div v-if="addressList.length === 0" class="text-center py-16 bg-white dark:bg-gray-800 rounded-2xl border border-dashed border-gray-200 dark:border-gray-600">
+					<i class="fa-regular fa-face-frown text-5xl text-gray-300 dark:text-gray-500 mb-4"></i>
 					<p class="text-gray-400 text-lg">还没有添加观察地址</p>
-					<p class="text-gray-300 text-sm mt-2">在上方输入地址开始追踪</p>
+					<p class="text-gray-300 dark:text-gray-500 text-sm mt-2">在上方输入地址开始追踪</p>
 				</div>
 
 				<div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-					<div v-for="item in addressList" :key="item.address" class="address-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm transition-all duration-200 relative group">
+					<div v-for="item in addressList" :key="item.address" class="address-card bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm transition-all duration-200 relative group">
 						<!-- 操作按钮 (hover显示) -->
 						<div class="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition">
-							<button @click="refreshSingleAddress(item.address)" class="w-8 h-8 bg-white rounded-full border border-gray-200 text-gray-500 hover:text-orange-500 hover:border-orange-200 flex items-center justify-center" :title="'刷新' + (item.label || '地址')">
+							<button @click="refreshSingleAddress(item.address)" class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:border-orange-200 flex items-center justify-center" :title="'刷新' + (item.label || '地址')">
 								<i class="fa-solid fa-rotate text-sm" :class="{'animate-spin': refreshingSet.has(item.address)}"></i>
 							</button>
-							<button @click="showAddressDetail(item)" class="w-8 h-8 bg-white rounded-full border border-gray-200 text-gray-500 hover:text-blue-500 hover:border-blue-200 flex items-center justify-center" title="交易详情">
+							<button @click="showAddressDetail(item)" class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-blue-500 hover:border-blue-200 flex items-center justify-center" title="交易详情">
 								<i class="fa-regular fa-rectangle-list"></i>
 							</button>
-							<button @click="removeAddress(item.address)" class="w-8 h-8 bg-white rounded-full border border-gray-200 text-gray-500 hover:text-red-500 hover:border-red-200 flex items-center justify-center" title="移除">
+							<button @click="removeAddress(item.address)" class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-red-500 hover:border-red-200 flex items-center justify-center" title="移除">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
 						</div>
 
 						<div class="flex items-start gap-3 mb-3">
-							<div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 flex-shrink-0">
+							<div class="w-10 h-10 bg-orange-100 dark:bg-orange-500/20 rounded-full flex items-center justify-center text-orange-500 flex-shrink-0">
 								<i class="fa-brands fa-bitcoin text-xl"></i>
 							</div>
 							<div class="flex-1 min-w-0">
-								<h3 class="font-semibold text-gray-800 truncate">{{ item.label || item.address.slice(0,10)+'…'+item.address.slice(-6) }}</h3>
+								<h3 class="font-semibold text-gray-800 dark:text-gray-100 truncate">{{ item.label || item.address.slice(0,10)+'…'+item.address.slice(-6) }}</h3>
 								<p class="text-xs text-gray-400 font-mono truncate">{{ item.address }}</p>
 							</div>
 						</div>
@@ -173,8 +179,8 @@
 						<div class="flex justify-between items-end mt-2">
 							<div>
 								<p class="text-xs text-gray-400">已确认</p>
-								<p class="text-xl font-bold text-gray-800">{{ (item.balance ?? 0).toLocaleString() }} <span class="text-xs font-normal text-gray-400">sats</span></p>
-								<p class="text-xs text-gray-500 mt-0.5">≈ {{ ((item.balance ?? 0) / 100000000).toFixed(8) }} BTC</p>
+								<p class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ (item.balance ?? 0).toLocaleString() }} <span class="text-xs font-normal text-gray-400">sats</span></p>
+								<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">≈ {{ ((item.balance ?? 0) / 100000000).toFixed(8) }} BTC</p>
 								<p v-if="item.unconfirmedBalance && item.unconfirmedBalance !== 0" class="text-xs text-amber-500">
 								<i class="fa-regular fa-clock"></i> 未确认: {{ item.unconfirmedBalance.toLocaleString() }} sats
 								<span class="block text-amber-400/70 text-[10px] mt-0.5 ml-4">≈ {{ (item.unconfirmedBalance / 100000000).toFixed(8) }} BTC</span>
@@ -192,26 +198,26 @@
 				</div>
 
 				<!-- 交易详情抽屉 -->
-				<div v-if="detailAddress" class="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-4" @click.self="closeDetail">
-					<div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl max-h-[80vh] overflow-hidden">
-						<div class="p-6 border-b border-gray-100 flex justify-between items-center">
+				<div v-if="detailAddress" class="fixed inset-0 bg-black/30 dark:bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-4" @click.self="closeDetail">
+					<div class="bg-white dark:bg-gray-800 w-full max-w-2xl rounded-3xl shadow-2xl max-h-[80vh] overflow-hidden">
+						<div class="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
 							<div>
-								<h2 class="text-xl font-bold text-gray-800 flex items-center gap-2"><i class="fa-regular fa-clock"></i> 交易历史</h2>
+								<h2 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2"><i class="fa-regular fa-clock"></i> 交易历史</h2>
 								<p class="text-sm text-gray-400 break-all">{{ detailAddress.address }}</p>
 							</div>
-							<button @click="closeDetail" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+							<button @click="closeDetail" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-500 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
 						</div>
 						<div class="p-4 overflow-y-auto" style="max-height: 60vh;">
 							<div v-if="loadingTx" class="flex justify-center py-8"><i class="fa-solid fa-spinner fa-spin text-3xl text-orange-300"></i></div>
 							<div v-else-if="transactions.length === 0" class="text-center py-12 text-gray-400"><i class="fa-regular fa-folder-open text-4xl mb-3"></i><p>暂无交易记录</p></div>
 							<div v-else class="space-y-3">
-								<div v-for="tx in transactions" :key="tx.txid" class="border border-gray-100 rounded-xl p-4 hover:bg-gray-50">
+								<div v-for="tx in transactions" :key="tx.txid" class="border border-gray-100 dark:border-gray-700 rounded-xl p-4 hover:bg-gray-50 dark:hover:bg-gray-700">
 									<div class="flex justify-between items-start gap-2">
-										<a :href="txExplorerUrl(tx.txid)" target="_blank" class="text-sm font-mono text-orange-600 truncate hover:underline">{{ tx.txid.slice(0,16) }}…{{ tx.txid.slice(-8) }}</a>
-										<span :class="tx.type === '接收' ? 'text-green-600' : 'text-red-600'" class="text-sm font-medium px-2 py-0.5 bg-gray-100 rounded-full">{{ tx.type }}</span>
+										<a :href="txExplorerUrl(tx.txid)" target="_blank" class="text-sm font-mono text-orange-600 dark:text-orange-400 truncate hover:underline">{{ tx.txid.slice(0,16) }}…{{ tx.txid.slice(-8) }}</a>
+										<span :class="tx.type === '接收' ? 'text-green-600' : 'text-red-600'" class="text-sm font-medium px-2 py-0.5 bg-gray-100 dark:bg-gray-700 rounded-full">{{ tx.type }}</span>
 									</div>
 									<div class="flex justify-between items-center mt-2 text-sm">
-										<span class="text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>{{ new Date(tx.time * 1000).toLocaleString() }}</span>
+										<span class="text-gray-500 dark:text-gray-400"><i class="fa-regular fa-calendar mr-1"></i>{{ new Date(tx.time * 1000).toLocaleString() }}</span>
 										<span class="font-mono font-bold">{{ (tx.value / 1e8).toFixed(8) }} BTC</span>
 									</div>
 									<div class="text-xs text-gray-400 mt-1">确认数: {{ tx.confirmations }}</div>
@@ -223,16 +229,16 @@
 			</div>
 
 			<!-- 密码锁遮罩层 - 当未解锁时显示 -->
-			<div v-if="!isUnlocked" class="fixed inset-0 bg-white/90 password-overlay z-[100] flex flex-col items-center justify-center p-4">
-				<div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-gray-200 p-8">
+			<div v-if="!isUnlocked" class="fixed inset-0 bg-white/90 dark:bg-gray-950/90 password-overlay z-[100] flex flex-col items-center justify-center p-4">
+				<div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-md w-full border border-gray-200 dark:border-gray-600 p-8">
 					<div class="text-center mb-6">
 						<i class="fa-brands fa-bitcoin text-5xl text-orange-400 mb-3"></i>
-						<h2 class="text-2xl font-bold text-gray-800">输入密码解锁</h2>
+						<h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">输入密码解锁</h2>
 						<p class="text-gray-400 text-sm mt-1">本地加密 · 密码仅用于此浏览器</p>
 					</div>
 					<div class="space-y-4">
 						<input type="password" v-model="passwordInput" @keyup.enter="unlockApp" placeholder="请输入本地密码" 
-																								class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 focus:border-orange-300 outline-none transition">
+																								class="w-full border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500/30 focus:border-orange-300 dark:focus:border-orange-500 outline-none transition dark:bg-gray-900 dark:text-gray-200 dark:placeholder-gray-500">
 						<button @click="unlockApp" :disabled="!passwordInput || isUnlocking" 
 																								class="w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-xl font-medium transition disabled:opacity-40 shadow-sm flex items-center justify-center gap-2">
 							<i class="fa-solid" :class="isUnlocking ? 'fa-spinner fa-spin' : 'fa-lock-open'"></i> 
@@ -247,23 +253,23 @@
 						</div>
 
 						<!-- 重置确认对话框 -->
-						<div v-if="showResetConfirm" class="mt-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
-							<p class="text-sm text-orange-800 font-medium mb-2"><i class="fa-solid fa-triangle-exclamation"></i> 重置警告</p>
-							<p class="text-xs text-orange-700 mb-3">重置将清除所有已保存的地址数据，恢复初始状态。此操作不可撤销！</p>
+						<div v-if="showResetConfirm" class="mt-4 p-4 bg-orange-50 dark:bg-orange-500/15 rounded-xl border border-orange-200 dark:border-orange-500/30">
+							<p class="text-sm text-orange-800 dark:text-orange-300 font-medium mb-2"><i class="fa-solid fa-triangle-exclamation"></i> 重置警告</p>
+							<p class="text-xs text-orange-700 dark:text-orange-300 mb-3">重置将清除所有已保存的地址数据，恢复初始状态。此操作不可撤销！</p>
 							<div class="flex gap-2">
 								<button @click="resetStorage" class="flex-1 bg-red-500 hover:bg-red-600 text-white text-xs py-2 rounded-lg transition">
 									确认重置
 								</button>
-								<button @click="showResetConfirm = false" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs py-2 rounded-lg transition">
+								<button @click="showResetConfirm = false" class="flex-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 text-xs py-2 rounded-lg transition">
 									取消
 								</button>
 							</div>
 						</div>
 
-						<p class="text-xs text-gray-300 text-center mt-6">首次使用：输入任意密码创建加密存储<br>请记住密码，数据将用AES-GCM加密保存在本地</p>
+						<p class="text-xs text-gray-300 dark:text-gray-500 text-center mt-6">首次使用：输入任意密码创建加密存储<br>请记住密码，数据将用AES-GCM加密保存在本地</p>
 					</div>
 				</div>
-				<p class="text-xs text-gray-500 text-center mt-10"><a href="https://github.com/hmisty/bitwatch" target="_blank" class="text-orange-500 hover:text-orange-700 underline decoration-dotted"><i class="fa-brands fa-github"></i> github开源</a> ｜ 打赏支持 <i class="fa-solid fa-heart text-red-300"></i> bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e</p>
+				<p class="text-xs text-gray-500 dark:text-gray-400 text-center mt-10"><a href="https://github.com/hmisty/bitwatch" target="_blank" class="text-orange-500 hover:text-orange-700 dark:hover:text-orange-300 underline decoration-dotted"><i class="fa-brands fa-github"></i> github开源</a> ｜ 打赏支持 <i class="fa-solid fa-heart text-red-300"></i> bc1qk2c4se8stxh4u2l5r8yc9ah3z27uzvzclrke5e</p>
 				<p class="text-xs text-gray-400 text-center mt-2">无担保，使用风险自负。No warranty, use at your own risk.</p>
 			</div>
 		</div>
