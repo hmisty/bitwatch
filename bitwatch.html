@@ -84,6 +84,9 @@
 						<button @click="refreshAllAddresses" :disabled="isRefreshingAll" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition flex items-center gap-2 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
 							<i class="fa-solid fa-rotate" :class="{'animate-spin': isRefreshingAll}"></i> {{ isRefreshingAll ? '刷新中' : '全部刷新' }}
 						</button>
+						<button @click="lockApp" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center gap-2 shadow-sm" title="锁定屏幕，保护隐私">
+							<i class="fa-solid fa-lock"></i> 锁定
+						</button>
 					</div>
 				</div>
 
@@ -716,6 +719,21 @@
 					}
 
 					// 重置存储方法
+					function lockApp() {
+						// 主动锁屏：清除内存中的敏感数据，返回密码解锁界面
+						isUnlocked.value = false;
+						currentPassword.value = '';
+						passwordInput.value = '';
+						passwordError.value = '';
+						showResetConfirm.value = false;
+						showProviderMenu.value = false;
+						detailAddress.value = null;
+						transactions.value = [];
+						addressList.value = [];
+						fees.value = null;
+						// 加密数据仍保存在 localStorage，下次解锁时自动恢复
+					}
+
 					async function resetStorage() {
 						try {
 							// 清除本地存储的加密数据
@@ -811,6 +829,7 @@
 						showAddressDetail,
 						closeDetail,
 						unlockApp,
+						lockApp,
 						resetStorage,
 					};
 				}
