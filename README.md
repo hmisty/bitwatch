@@ -36,6 +36,8 @@
 - **Open** — Watch any bitcoin address, no restrictions
 - **Sats-Oriented** — Display in sats, no fiat conversion, cultivate coin-based thinking
 - **Multi-API** — Switch between Blockstream Esplora and mempool.space
+- **Dark Mode** — Auto-follows system light/dark appearance
+- **Privacy Lock** — One-click lock button to protect your watchlist when away
 
 ## 🚀 Quick Start
 
@@ -63,9 +65,10 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 
 - **Real-time Fees** — Display recommended network fees from the selected API
 - **Balance Tracking** — Show confirmed and unconfirmed balances
-- **Transaction History** — View recent transactions for each address
+- **Transaction History** — View recent transactions for each address (24-hour timestamps)
 - **Import/Export** — Backup and restore your watchlist
 - **Bulk Refresh** — Update all addresses with one click
+- **Manual Lock** — Return to the password screen instantly to protect privacy when leaving your computer
 
 ## 🛠️ Tech Stack
 
@@ -80,6 +83,11 @@ If you forget your password, click "Forgot password? Reset encrypted storage" on
 ### V1.3 (July 2026)
 - Multi-API support: Blockstream Esplora added, switchable with mempool.space
 - API selector in the subtitle bar, auto-refresh fees & balances on switch
+- System light/dark mode support (follows OS preference)
+- Manual lock button to instantly return to the password screen
+- 24-hour time format for all timestamps
+- Embedded favicon as base64 data URI (fully single-file SPA)
+- GitHub Actions deployment with automatic CNAME
 - UI polish: GitHub link & disclaimer on unlock screen
 
 ### V1.2 (March 2026)
